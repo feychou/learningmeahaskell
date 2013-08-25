@@ -145,3 +145,14 @@ calcBmis' xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]
 head'' :: [a] -> a
 head'' xs = case xs of [] -> error "No head for empty list!"
                        (x:_) -> x
+                       
+describeList :: [a] -> String
+describeList xs = "The list is " ++ case xs of [] -> "empty."
+                                               [x] -> "a singleton list."
+                                               xs -> "a longer list."  
+                                               
+describeList' :: [a] -> String
+describeList' xs = "The list is " ++ what xs
+    where what [] = "empty."
+          what [x] = "a singleton list."
+          what xs = "a longer list."                                                        
