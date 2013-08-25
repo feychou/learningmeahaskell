@@ -16,6 +16,7 @@ sayMe' 1 = "One!"
 sayMe' 2 = "Two!"
 sayMe' 3 = "Three!"
 -- every function calls conforms to the first pattern
+-- this function will cause a warning popping up
 
 factorial :: (Integral a) => a -> a
 factorial 0 = 1
@@ -138,3 +139,9 @@ cylinder r h =
     
 calcBmis' :: (RealFloat a) => [(a, a)] -> [a]
 calcBmis' xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2]
+
+-- case expressions
+
+head'' :: [a] -> a
+head'' xs = case xs of [] -> error "No head for empty list!"
+                       (x:_) -> x
